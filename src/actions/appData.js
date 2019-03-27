@@ -6,7 +6,20 @@ import {
 
 export default function (upkeepAPI) {
 
-  return {
+  const login = () => dispatch => {
+    dispatch({ type: INITIALIZE_AUTH });
 
+    return upkeepAPI.login()
+      .then(data => {
+        const { sessionToken } = data.result;
+        console.log("auth success! ", sessionToken);
+
+        dispatch({ type: INITIALIZE_AUTH_SUCCESS, payload: { sessionToken } });
+      })
+      .catch(authErr => dispatch({ type: INITIALIZE_AUTH_FAILURE, payload: { authErr } }));
+  };
+
+  return {
+    login
   };
 }

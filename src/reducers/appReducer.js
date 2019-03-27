@@ -8,7 +8,7 @@ const initialState = {
   authorized: false,
   authorizing: false,
   sessionToken: null,
-  authErrs: null
+  authErr: null
 };
 
 export default function(state = initialState, action) {
@@ -31,13 +31,13 @@ export default function(state = initialState, action) {
       };
 
     case INITIALIZE_AUTH_FAILURE: 
-      const { authErrs } = action.payload;
+      const { authErr } = action.payload;
 
       return {
         ...state,
         authorized: false,
         authorizing: false,
-        authErrs        
+        authErr        
       };
 
     default:

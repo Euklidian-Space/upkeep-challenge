@@ -8,7 +8,7 @@ const Home = props => {
 
   return (
     <div>
-      hello world!
+      hello world! your token is { props.token }
     </div>
   );
 };
