@@ -1,12 +1,10 @@
-import {
-  INITIALIZE_AUTH,
-  INITIALIZE_AUTH_SUCCESS,
-  INITIALIZE_AUTH_FAILURE
-} from "./types";
+import upkeepAPI from "../API";
+import appDataActions from "./appData";
 
-export default function (upkeepAPI) {
+const { 
+  login 
+} = appDataActions(upkeepAPI);
 
-  return {
-
-  };
-}
+export {
+  login
+};
