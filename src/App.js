@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from "react-redux";
+import { login } from "./actions";
 import './App.css';
 import Home from "./components/Home";
 
-const App = () => (
-  <div className="App">
-    <Home />
-  </div>
-);
+const App = props => {
 
+  useEffect(() => {
+    props.login();
+  }, []);
 
-export default App;
+  return (
+    <div className="App">
+      <Home />
+    </div>
+  );
+};
+
+const mapDispatchToProps = {
+  login
+};
+
+export default connect(null, mapDispatchToProps)(App);
