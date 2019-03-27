@@ -9,10 +9,11 @@ const login = () => axios.post(`${baseURL}/auth`, {
 })
   .then(resp => resp.data);
 
-const mergeOptionsToQueryString = opts => Object.entries(opts).reduce((query, pair) => {
-  const [option, val] = pair;
-  return query + `${option}=${val}`;
-}, "");
+const mergeOptionsToQueryString = opts => Object.entries(opts)
+  .reduce((query, pair) => {
+    const [option, val] = pair;
+    return query + `${option}=${val}`;
+  }, "");
 
 const getAllWorkOrders = flow(
   mergeOptionsToQueryString,
@@ -25,4 +26,3 @@ export default {
   getAllWorkOrders
 };
 
-  
