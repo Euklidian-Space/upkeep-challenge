@@ -9,15 +9,19 @@ const login = () => axios.post(`${baseURL}/auth`, {
 })
   .then(resp => resp.data);
 
-const mergeOptionsToQueryString = opts => Object.entries(opts)
-  .reduce((query, pair) => {
+const mergeOptionsToQueryString = reqParams => Object.entries(reqParams.opts)
+  .reduce((result, pair) => {
     const [option, val] = pair;
-    return query + `${option}=${val}`;
-  }, "");
+    const { query } = result;
+    return {
+      ...result,
+      query: query + `${option}=${val}&`
+    }
+  }, reqParams);
 
 const getAllWorkOrders = flow(
   mergeOptionsToQueryString,
-  query => axios.get(`${baseURL}/work-orders?${query}`)
+  ({ query, token }) => axios.get(`${baseURL}/work-orders?${query}`, { headers: { "Session-Token": token } })
     .then(resp => resp.data)
 );
 
