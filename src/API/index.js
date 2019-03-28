@@ -13,19 +13,20 @@ const mergeOptionsToQueryString = reqParams => Object.entries(reqParams.opts)
   .reduce((result, pair, idx) => {
     const [option, val] = pair;
     const { query } = result;
-    
+    const numberOfParams = Object.keys(reqParams.opts).length;
+
     return {
       ...result,
-      query: query + `${option}=${val}${idx + 1 === reqParam.opts.length ? "" : "&"}`
+      query: query + `${option}=${val}${idx + 1 === numberOfParams ? "" : "&"}`
     }
-  }, reqParams);
+  }, { ...reqParams, query: "" });
 
 const getAllWorkOrders = flow(
   mergeOptionsToQueryString,
-  ({ query, token }) => axios.get(`${baseURL}/work-orders?${query}`, { 
-    headers: { 
-      "Session-Token": token 
-    } 
+  ({ query, token }) => axios.get(`${baseURL}/work-orders?${query}`, {
+    headers: {
+      "Session-Token": token
+    }
   }).then(resp => resp.data)
 );
 
