@@ -10,19 +10,23 @@ const login = () => axios.post(`${baseURL}/auth`, {
   .then(resp => resp.data);
 
 const mergeOptionsToQueryString = reqParams => Object.entries(reqParams.opts)
-  .reduce((result, pair) => {
+  .reduce((result, pair, idx) => {
     const [option, val] = pair;
     const { query } = result;
+    
     return {
       ...result,
-      query: query + `${option}=${val}&`
+      query: query + `${option}=${val}${idx + 1 === reqParam.opts.length ? "" : "&"}`
     }
   }, reqParams);
 
 const getAllWorkOrders = flow(
   mergeOptionsToQueryString,
-  ({ query, token }) => axios.get(`${baseURL}/work-orders?${query}`, { headers: { "Session-Token": token } })
-    .then(resp => resp.data)
+  ({ query, token }) => axios.get(`${baseURL}/work-orders?${query}`, { 
+    headers: { 
+      "Session-Token": token 
+    } 
+  }).then(resp => resp.data)
 );
 
 export default {
