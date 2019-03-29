@@ -3,10 +3,12 @@ import appDataActions from "./appData";
 
 const { 
   login,
-  fetchWorkOrders
+  fetchWorkOrders,
+  createWorkOrder
 } = appDataActions(upkeepAPI);
 
 export {
   login,
-  fetchWorkOrders
+  fetchWorkOrders,
+  createWorkOrder
 };
