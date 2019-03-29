@@ -7,7 +7,7 @@ const onSubmit = values => alert(JSON.stringify(values));
 const WrappedWorkOrderForm = () => (
   <Form
     onSubmit={onSubmit}
-    render={({ handleSubmit }) => (
+    render={({ handleSubmit, form, submitting, pristine }) => (
       <form onSubmit={handleSubmit}>
         <div>
           <Field
@@ -45,6 +45,13 @@ const WrappedWorkOrderForm = () => (
             )}
           />
         </div>
+        <button
+          type="button"
+          onClick={form.reset}
+          disabled={submitting || pristine}
+        >
+          Submit
+        </button>
       </form>
     )}
   />
