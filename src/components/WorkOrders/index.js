@@ -4,6 +4,16 @@ import WorkOrders from "./WorkOrders";
 import { fetchWorkOrders } from "../../actions";
 import "./styles.css";
 
+const getPriority = n => ["None", "Low", "Medium", "High"][n];
+
+const formatDateString = dateString => (new Date(dateString)).toDateString();
+
+const prepWorkOrders = workOrders => workOrders.map(w => ({
+  ...w,
+  priority: getPriority(w.priority),
+  dueDate: formatDateString(w.dueDate)
+}));
+
 const ConnectedWorkOrders = props => {
   useEffect(() => {
     if (props.token) {
@@ -16,7 +26,7 @@ const ConnectedWorkOrders = props => {
     }
   }, [props.token]);
 
-  return <WorkOrders orders={props.workOrders} />;
+  return <WorkOrders orders={props.workOrders ? prepWorkOrders(props.workOrders) : []} />;
 };
 
 const mapStateToProps = ({ appData }) => ({

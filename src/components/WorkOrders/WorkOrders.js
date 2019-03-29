@@ -12,21 +12,22 @@ const tableHead = () => (
 
 const table = orders => (
   <table>
-    {tableHead()}
-    {orders.map((order, idx) => {
-      const { title, description, priority, dueDate } = order;
-      const date = (new Date(dueDate)).toDateString();
+    <tbody>
+      {tableHead()}
+      {orders.map((order, idx) => {
+        const { title, description, priority, dueDate } = order;
 
-      return (
-        <WorkOrder
-          title={title}
-          description={description}
-          priority={priority}
-          dueDate={date}
-          key={idx + description}
-        />
-      );
-    })}
+        return (
+          <WorkOrder
+            title={title}
+            description={description}
+            priority={priority}
+            dueDate={dueDate}
+            key={idx + description}
+          />
+        );
+      })}
+    </tbody>
   </table>
 );
 
