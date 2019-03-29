@@ -1,5 +1,6 @@
 import React from "react";
 import { Form, Field } from "react-final-form";
+import { PrimaryButton } from "../common";
 
 const WorkOrderForm = props => (
   <div>
@@ -41,13 +42,9 @@ const WorkOrderForm = props => (
             />
           </div>
           <div className="buttonContainer">
-            <button
-              type="submit"
-              onClick={form.submit}
-              disabled={submitting || pristine}
-            >
+            <PrimaryButton onClick={form.submit} disabled={submitting || pristine}>
               Submit
-          </button>
+            </PrimaryButton>
           </div>
         </form>
       )}
