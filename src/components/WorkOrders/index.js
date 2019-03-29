@@ -9,10 +9,10 @@ const getPriority = n => ["None", "Low", "Medium", "High"][n];
 
 const formatDateString = dateString => (new Date(dateString)).toDateString();
 
-const prepWorkOrders = workOrders => workOrders.map(w => ({
-  ...w,
-  priority: getPriority(w.priority),
-  dueDate: formatDateString(w.dueDate)
+const prepWorkOrders = workOrders => workOrders.map(workOrder => ({
+  ...workOrder,
+  priority: getPriority(workOrder.priority),
+  dueDate: formatDateString(workOrder.dueDate)
 }));
 
 const ConnectedWorkOrders = props => {
