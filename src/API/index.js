@@ -6,8 +6,7 @@ const baseURL = "https://api.onupkeep.com/api/v2";
 const login = () => axios.post(`${baseURL}/auth`, {
   email: upkeepCredentials.email,
   password: upkeepCredentials.password
-})
-  .then(resp => resp.data);
+}).then(resp => resp.data);
 
 const mergeOptionsToQueryString = reqParams => Object.entries(reqParams.opts)
   .reduce((result, pair, idx) => {
