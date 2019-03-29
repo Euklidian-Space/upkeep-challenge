@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import WorkOrders from "./WorkOrders";
 import { fetchWorkOrders } from "../../actions";
-import "./styles.css";
+import TableStyles from "./styles";
+// import "./styles.css";
 
 const getPriority = n => ["None", "Low", "Medium", "High"][n];
 
@@ -26,7 +27,11 @@ const ConnectedWorkOrders = props => {
     }
   }, [props.token]);
 
-  return <WorkOrders orders={props.workOrders ? prepWorkOrders(props.workOrders) : []} />;
+  return (
+    <TableStyles>
+      <WorkOrders orders={props.workOrders ? prepWorkOrders(props.workOrders) : []} />
+    </TableStyles>
+  );
 };
 
 const mapStateToProps = ({ appData }) => ({
