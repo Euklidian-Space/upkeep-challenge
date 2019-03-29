@@ -1,6 +1,5 @@
 import React from "react";
 import { Form, Field } from "react-final-form";
-import "./styles.css";
 
 const WorkOrderForm = props => (
   <div>
@@ -41,13 +40,15 @@ const WorkOrderForm = props => (
               type="date"
             />
           </div>
-          <button
-            type="button"
-            onClick={form.submit}
-            disabled={submitting || pristine}
-          >
-            Submit
+          <div className="buttonContainer">
+            <button
+              type="submit"
+              onClick={form.submit}
+              disabled={submitting || pristine}
+            >
+              Submit
           </button>
+          </div>
         </form>
       )}
     />
