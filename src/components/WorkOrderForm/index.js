@@ -37,12 +37,8 @@ const WrappedWorkOrderForm = () => (
         <div>
           <Field
             name="dueDate"
-            render={({ input, meta }) => (
-              <div>
-                <input type="date" {...input} />
-                {meta.touched && meta.error && <span>{meta.error}</span>}
-              </div>
-            )}
+            component="input"
+            type="date"
           />
         </div>
         <button
