@@ -30,8 +30,15 @@ const getAllWorkOrders = flow(
   }).then(resp => resp.data)
 );
 
+const createWorkOrder = ({ opts, token }) => axios.post(
+  `${baseURL}/work-orders`,
+  opts,
+  { headers: { "Session-Token": token } }
+).then(resp => resp.data);
+
 export default {
   login,
-  getAllWorkOrders
+  getAllWorkOrders,
+  createWorkOrder
 };
 
