@@ -39,9 +39,8 @@ export default function (upkeepAPI) {
     const { sessionToken } = getState().appData;
 
     return upkeepAPI.createWorkOrder({ token: sessionToken, opts })
-      .then(({ results }) => {
-        debugger;
-        // dispatch({ type: CREATE_WORK_ORDER_SUCCESS, payload: { results }});
+      .then(({ result }) => {
+        dispatch({ type: CREATE_WORK_ORDER_SUCCESS, payload: { workOrder: result }});
       })
       .catch(err => dispatch({ type: CREATE_WORK_ORDER_FAILURE, payload: { err } }));
   };
