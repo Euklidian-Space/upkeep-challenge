@@ -63,3 +63,8 @@ This project uses the styled component library for css styling.  It allows local
 
 The styles.js file holds the style component.  index.js imports the component exported from Home.js and wraps it with the component exported from styles.js .  This approach separates styling concerns from the business logic. This pattern is repeated for all components.  
 
+### Things Missed
+
+I did not have time to implement error handling.  I have redux setup to handle errors in the API calls, but I was not able to come up with an implementation for displaying those errors to the user.  More than able to discuss how I would approach such an undertaking though :-) .
+
+
