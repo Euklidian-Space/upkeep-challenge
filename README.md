@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), and was created for the candidate coding challenge for UpKeep.
 
 ## Important
 In order for the project to work properly you must add a secrets.json file to the project root with the following structure
@@ -10,7 +10,6 @@ In order for the project to work properly you must add a secrets.json file to th
   }
 }
 ```
-
 
 ## Available Scripts
 
@@ -49,32 +48,16 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Other Requirements 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Styling Documentation  
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project uses the styled component library for css styling.  It allows locally scoped styles without the component bloat that inline styling gives.  The approach I took implementing styles with "styled components" was to make a styled component in a separate file and then use functional composition and Higher Order Components to build up a final styled component.  For example see the directory /src/components/Home has the following structure.  
 
-### Code Splitting
+.
+├── Home.js
+├── index.js
+└── styles.js
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+The styles.js file holds the style component.  index.js imports the component exported from Home.js and wraps it with the component exported from styles.js .  This approach separates styling concerns from the business logic. This pattern is repeated for all components.  
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
