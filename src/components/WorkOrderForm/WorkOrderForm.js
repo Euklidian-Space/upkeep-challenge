@@ -42,7 +42,9 @@ const WorkOrderForm = props => (
             />
           </div>
           <div className="buttonContainer">
-            <PrimaryButton onClick={form.submit} disabled={submitting || pristine}>
+            <PrimaryButton 
+              onClick={form.submit} 
+              disabled={submitting || pristine}>
               Submit
             </PrimaryButton>
           </div>
