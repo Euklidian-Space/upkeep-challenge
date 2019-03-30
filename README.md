@@ -54,10 +54,12 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 This project uses the styled component library for css styling.  It allows locally scoped styles without the component bloat that inline styling gives.  The approach I took implementing styles with "styled components" was to make a styled component in a separate file and then use functional composition and Higher Order Components to build up a final styled component.  For example see the directory /src/components/Home has the following structure.  
 
+```
 .
 ├── Home.js
 ├── index.js
 └── styles.js
+```
 
 The styles.js file holds the style component.  index.js imports the component exported from Home.js and wraps it with the component exported from styles.js .  This approach separates styling concerns from the business logic. This pattern is repeated for all components.  
 
