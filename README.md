@@ -2,13 +2,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Important
 In order for the project to work properly you must add a secrets.json file to the project root with the following structure
-
+```
 {
   "upkeepCredentials": {
     "email": "your upkeep email here",
     "password": "your password here"
   }
 }
+```
 
 
 ## Available Scripts
