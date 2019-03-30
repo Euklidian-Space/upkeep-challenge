@@ -1,6 +1,6 @@
 import axios from "axios";
 import { flow } from "lodash/fp";
-import { upkeepCredentials } from "./secrets.json";
+import { upkeepCredentials } from "../secrets.json";
 const baseURL = "https://api.onupkeep.com/api/v2";
 
 const login = () => axios.post(`${baseURL}/auth`, {

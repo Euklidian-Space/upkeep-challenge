@@ -1,5 +1,16 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Important
+In order for the project to work properly you must add a secrets.json file to the project root with the following structure
+
+{
+  "upkeepCredentials": {
+    "email": "your upkeep email here",
+    "password": "your password here"
+  }
+}
+
+
 ## Available Scripts
 
 In the project directory, you can run:
